@@ -20,14 +20,16 @@ body, html {
     flex-direction: column-reverse;
     justify-content: start;
     position: relative;
-    max-width: 226px;
+    /* max-width: 226px; */
     max-height: 45%;
     margin: 0 auto;
 }
 
 .card {
-    min-height: 90%;
-    align-self: center;
+    display: flex;
+    justify-content: center;
+    height: 314px;
+    width: 226px;
     max-height: 90%;
 }
 
@@ -59,6 +61,7 @@ button {
 
 .remainingCards {
     position: unset;
+    margin-bottom: 0.5em;
 }
 
 .remainingAndDraw {
@@ -67,8 +70,10 @@ button {
 
 #score1,
 #score2 {
+    font-weight: 700;
     white-space: nowrap;
     font-size: min(4vh, 2em);
     padding: 0 5px;
+    width: 4.5em;
     background-color: white;
 }
