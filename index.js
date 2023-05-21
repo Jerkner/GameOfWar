@@ -33,6 +33,11 @@ function drawCards() {
         const convertedValue1 = convertFaceCards(data.cards[0].value);
         const convertedValue2 = convertFaceCards(data.cards[1].value);
   
+        console.log(convertedValue1)
+        console.log(convertedValue2)
+
+
+
         card1.innerHTML = `<img src=${data.cards[0].image}>`
         card2.innerHTML = `<img src=${data.cards[1].image}>`
 
@@ -75,6 +80,8 @@ function drawCards() {
   
   function convertFaceCards(card) {
     switch (card) {
+        case '10':
+        return 10;
       case 'JACK':
         return 11;
       case 'QUEEN':
