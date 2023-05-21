@@ -9,34 +9,26 @@ const winner1 = document.getElementById("winner1")
 const winner2 = document.getElementById("winner2")
 const loser1 = document.getElementById("loser1")
 const loser2 = document.getElementById("loser2")
-
 let scoreCount1 = 0
 let scoreCount2 = 0
 let deckId = ''
 
-function newDeck() {
-    fetch('https://apis.scrimba.com/deckofcards/api/deck/new/shuffle/')
-    .then(response => response.json())
-    .then(data => {
+async function newDeck() {
+    const res = await fetch('https://apis.scrimba.com/deckofcards/api/deck/new/shuffle/')
+    const data = await res.json()
+
         reset()
 
         deckId = data.deck_id
         remainingCards.innerText = data.remaining
-    })
-}
+    }
 
-function drawCards() {
-    fetch(`https://apis.scrimba.com/deckofcards/api/deck/${deckId}/draw/?count=2`)
-      .then(response => response.json())
-      .then(data => {
+async function drawCards() {
+    const res = await fetch(`https://apis.scrimba.com/deckofcards/api/deck/${deckId}/draw/?count=2`)
+    const data = await res.json()
 
         const convertedValue1 = convertFaceCards(data.cards[0].value);
         const convertedValue2 = convertFaceCards(data.cards[1].value);
-  
-        console.log(convertedValue1)
-        console.log(convertedValue2)
-
-
 
         card1.innerHTML = `<img src=${data.cards[0].image}>`
         card2.innerHTML = `<img src=${data.cards[1].image}>`
@@ -75,8 +67,7 @@ function drawCards() {
                 winner2.hidden = false
             }
         }
-      });
-  }
+      }
   
   function convertFaceCards(card) {
     switch (card) {
