@@ -81,7 +81,7 @@ function drawCards() {
   function convertFaceCards(card) {
     switch (card) {
         case '10':
-        return 10;
+        return 10.5;
       case 'JACK':
         return 11;
       case 'QUEEN':
