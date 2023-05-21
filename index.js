@@ -5,6 +5,11 @@ const card2 = document.getElementById("card2")
 let score1 = document.getElementById("score1")
 let score2 = document.getElementById("score2")
 const remainingCards = document.getElementById("remainingCards")
+const winner1 = document.getElementById("winner1")
+const winner2 = document.getElementById("winner2")
+const loser1 = document.getElementById("loser1")
+const loser2 = document.getElementById("loser2")
+
 let scoreCount1 = 0
 let scoreCount2 = 0
 let deckId = ''
@@ -13,23 +18,10 @@ function newDeck() {
     fetch('https://apis.scrimba.com/deckofcards/api/deck/new/shuffle/')
     .then(response => response.json())
     .then(data => {
+        reset()
 
         deckId = data.deck_id
-
-        card1.innerHTML = `<img src="images/card-backside2.jpeg">`
-        card2.innerHTML = `<img src="images/card-backside2.jpeg">`
-
-        scoreCount1 = 0
-        scoreCount2 = 0
-
-        score1.innerText = `Score: ${scoreCount1}`
-        score2.innerText = `Score: ${scoreCount2}`
-
-        score1.style.color = "black"
-        score2.style.color = "black"
-
         remainingCards.innerText = data.remaining
-        drawBtn.disabled = false
     })
 }
 
@@ -65,7 +57,18 @@ function drawCards() {
         remainingCards.innerText = data.remaining;
         if (data.remaining === 0) {
             drawBtn.disabled = true
-            drawBtn.style.cursor = "unset"
+            drawBtn.style.cursor = "not-allowed"
+
+            if (scoreCount1 > scoreCount2) {
+                winner1.hidden = false
+                loser2.hidden = false
+            } else if (scoreCount2 > scoreCount1) {
+                winner2.hidden = false
+                loser1.hidden = false
+            } else {
+                winner1.hidden = false
+                winner2.hidden = false
+            }
         }
       });
   }
@@ -83,6 +86,29 @@ function drawCards() {
       default:
         return card;
     }
+  }
+
+  function reset() {
+    card1.innerHTML = `<img src="images/card-backside3-1.bmp">`
+    card2.innerHTML = `<img src="images/card-backside3-1.bmp">`
+
+    drawBtn.disabled = false
+    drawBtn.style.cursor = "pointer"
+
+    scoreCount1 = 0
+    scoreCount2 = 0
+
+    score1.innerText = `Score: ${scoreCount1}`
+    score2.innerText = `Score: ${scoreCount2}`
+
+    score1.style.color = "black"
+    score2.style.color = "black"
+
+    winner1.hidden = true
+    winner2.hidden = true
+    loser1.hidden = true
+    loser2.hidden = true
+
   }
 
 newDeckBtn.addEventListener("click", newDeck)
