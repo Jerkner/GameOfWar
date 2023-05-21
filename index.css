@@ -1,0 +1,74 @@
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+        /* border: red solid 1px; */
+}
+body, html {
+    height: 80vh;
+    background-image: url(images/background1.bmp);
+}
+
+.playArea {
+    display: flex;
+    flex-direction: column;
+    height: 90vh;
+}
+
+.card-container {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: start;
+    position: relative;
+    max-width: 226px;
+    max-height: 45%;
+    margin: 0 auto;
+}
+
+.card {
+    align-self: center;
+    max-height: 90%;
+}
+
+img {
+    max-width: 100%;
+    max-height: 100%;
+    margin-bottom: 1.5em;
+    border-radius: 10px;
+    transform: scale(75%);
+    overflow: hidden;
+}
+
+p {
+    align-self: center;
+    position: absolute;
+    bottom: 3vh;
+    margin: 0 auto;    
+    font-size: 2vh;
+    color: white;
+}
+
+button {
+    height: 2em;
+    min-width: 8vw;
+    margin: 0 auto;
+    padding: 0 5px;
+    font-size: minmax(1vw, 1em);
+    cursor: pointer;
+}
+
+.remainingCards {
+    position: unset;
+}
+
+.remainingAndDraw {
+    text-align: center;
+}
+
+#score1,
+#score2 {
+    white-space: nowrap;
+    font-size: min(4vh, 2em);
+    padding: 0 5px;
+    background-color: white;
+}
