@@ -27,6 +27,7 @@ function newDeck() {
         score2.style.color = "black"
 
         remainingCards.innerText = data.remaining
+        drawBtn.disabled = false
     })
 }
 
@@ -60,6 +61,10 @@ function drawCards() {
         score2.innerText = `Score: ${scoreCount2}`
 
         remainingCards.innerText = data.remaining;
+        if (data.remaining === 0) {
+            drawBtn.disabled = true
+            drawBtn.style.cursor = "unset"
+        }
       });
   }
   

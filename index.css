@@ -52,7 +52,7 @@ button {
     height: 2em;
     min-width: 8vw;
     margin: 0 auto;
-    padding: 0 5px;
+    padding: 5px;
     font-size: minmax(1vw, 1em);
     cursor: pointer;
 }
