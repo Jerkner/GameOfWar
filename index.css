@@ -26,6 +26,7 @@ body, html {
 }
 
 .card {
+    min-height: 90%;
     align-self: center;
     max-height: 90%;
 }
@@ -36,7 +37,6 @@ img {
     margin-bottom: 1.5em;
     border-radius: 10px;
     transform: scale(75%);
-    overflow: hidden;
 }
 
 p {
