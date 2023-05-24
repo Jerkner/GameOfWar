@@ -106,7 +106,6 @@ async function drawCards() {
     winner2.hidden = true
     loser1.hidden = true
     loser2.hidden = true
-
   }
 
 newDeckBtn.addEventListener("click", newDeck)
